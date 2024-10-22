@@ -5,14 +5,14 @@ const OAuth2 = google.auth.OAuth2;
 
 // Replace these values with your actual client ID, client secret, and redirect URI
 const oauth2Client = new OAuth2(
-  '776981482837-3r7s277bkollgs2ule12erkg5g1ekqjd.apps.googleusercontent.com', // Client ID
-  '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', // Client Secret
+  process.env.client_id , // Client ID
+  process.env.client_secret, // Client Secret
   'https://developers.google.com/oauthplayground' // Redirect URI or your application's redirect URI
 );
 
 // Set the refresh token (you'll need to generate this from your Google account)
 oauth2Client.setCredentials({
-  refresh_token: '1//0484AWepQwyngCgYIARAAGAQSNwF-L9IrJJucLS_NIg0Ijh5QcIu0rDAs6kKjd7N6rBYdhUpjTH4C5kBRXYt9lFxd3_MmY9FTe7M',
+  refresh_token: process.env.refresh_token,
 });
 
 exports.sendEmailAlert = async (req, res) => {
@@ -28,16 +28,16 @@ exports.sendEmailAlert = async (req, res) => {
       service: 'gmail',
       auth: {
         type: 'OAuth2',
-        user: 'parasmanikhunte@gmail.com', // Your email
-        clientId: '776981482837-3r7s277bkollgs2ule12erkg5g1ekqjd.apps.googleusercontent.com',
-        clientSecret: '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',
-        refreshToken: '1//0484AWepQwyngCgYIARAAGAQSNwF-L9IrJJucLS_NIg0Ijh5QcIu0rDAs6kKjd7N6rBYdhUpjTH4C5kBRXYt9lFxd3_MmY9FTe7M',
+        user: process.env.your_email, // Your email
+        clientId: process.env.client_id ,
+        clientSecret: process.env.client_secret,
+        refreshToken: process.env.refresh_token,
         accessToken: accessToken.token,
       },
     });
 
     const mailOptions = {
-      from: 'parasmanikhunte@gmail.com',
+      from: process.env.your_email,
       to: email,
       subject: 'Campaign Alert',
       text: message,
