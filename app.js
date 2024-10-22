@@ -4,7 +4,8 @@ const dataRoutes = require('./routes/dataRoutes');
 const reportRoutes = require('./routes/reportRoutes');
 const cron = require('node-cron');
 const { processCampaignData } = require('./controllers/etlController');
-
+const dotenv =  require('dotenv')
+dotenv.config
 const app = express();
 
 // Connect to MongoDB
