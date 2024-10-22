@@ -1,0 +1,26 @@
+{
+  "name": "ezymetrics-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon",
+    "start": "nodemon server",
+    "dev": "npm run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "googleapis": "^144.0.0",
+    "json2csv": "^6.0.0-alpha.2",
+    "mongoose": "^8.7.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.15",
+    "nodemon": "^3.1.7",
+    "pdfkit": "^0.15.0"
+  }
+}
